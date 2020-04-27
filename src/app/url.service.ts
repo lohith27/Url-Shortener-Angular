@@ -11,10 +11,10 @@ export class UrlService {
   constructor(private http: HttpClient) { }
 
   postLongUrl(data): Observable<any>{
-    return this.http.post("http://localhost:3000/longurl", data);
+    return this.http.post("https://loh-url-shortener.herokuapp.com/longurl",data);
   }
 
   getUrls():Observable<any>{
-    return this.http.get("http://localhost:3000/url");
+    return this.http.get("https://loh-url-shortener.herokuapp.com/url");
   }
 }
