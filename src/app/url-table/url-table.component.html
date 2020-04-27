@@ -1,0 +1,18 @@
+<div class="container">
+  <table class="table table-danger">
+    <thead>
+      <tr>
+        <th scope="col">Short Url</th>
+        <th scope="col">Long Url</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let url of urls">
+        <a [href]="url.long">
+          <td>{{url.shortUrl}}</td>
+        </a>
+        <td>{{url.long}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
