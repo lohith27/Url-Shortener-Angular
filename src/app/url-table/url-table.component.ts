@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlService } from '../url.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-url-table',
@@ -9,14 +10,25 @@ import { UrlService } from '../url.service';
 export class UrlTableComponent implements OnInit {
 
   urls;
-  constructor(private urlService: UrlService) { 
+  constructor(private urlService: UrlService, private router : Router) { 
+  }
+
+  ngOnInit(): void {
     this.urlService.getUrls().subscribe((data) => {
       console.log(data);
       this.urls = data;
     })
   }
 
-  ngOnInit(): void {
+  deleteUrl(short){
+    console.log(short);
+    this.urlService.deleteUrl(short).subscribe((data) => {
+      console.log(data);
+      alert("success deleted");
+    })
   }
 
+  navigateUrl(){
+    this.router.navigate(['/']);
+  }
 }

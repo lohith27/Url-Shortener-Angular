@@ -8,11 +8,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let url of urls">
-        <a [href]="url.long">
-          <td>{{url.shortUrl}}</td>
+        <a [href]="url.redirectedUrl">
+          <td>{{url.redirectedUrl}}</td>
         </a>
         <td>{{url.long}}</td>
+        <td><input type="button" value="Delete" class="form-control btn btn-danger" (click)="deleteUrl(url.shortUrl)"></td>
       </tr>
     </tbody>
   </table>
+  <input type="button" value="Add Url" class="btn btn-primary" (click)="navigateUrl()">
 </div>

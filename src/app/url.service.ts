@@ -17,4 +17,8 @@ export class UrlService {
   getUrls():Observable<any>{
     return this.http.get("https://loh-url-shortener.herokuapp.com/url");
   }
+  deleteUrl(data):Observable<any>{
+    console.log(data);
+    return this.http.delete("https://loh-url-shortener.herokuapp.com/"+data);
+  }
 }
